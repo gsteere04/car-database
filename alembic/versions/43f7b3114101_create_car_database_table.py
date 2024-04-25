@@ -41,8 +41,8 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    op.drop_table("cars")
+    op.drop_table("inventory")
 
     op.drop_table("dealerships")
-    
-    op.drop_table("inventory")
+
+    op.drop_table("cars")
