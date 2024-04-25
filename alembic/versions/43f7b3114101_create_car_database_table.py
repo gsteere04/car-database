@@ -33,7 +33,7 @@ def upgrade() -> None:
                     sa.Column("address", sa.Text),
                     sa.Column("phone_number", sa.Text))
    
-    op.create_table("iventory", 
+    op.create_table("inventory", 
                     sa.Column("car_id", sa.Integer, sa.ForeignKey("cars.id"), primary_key=True),
                     sa.Column("dealer_id", sa.Integer, sa.ForeignKey("dealerships.id"), primary_key=True),
                     sa.Column("cost", sa.Float),
@@ -41,4 +41,6 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    op.drop_table("cars", "dealerships", "iventory")
+    op.drop_table("cars")
+    op.drop_table("dealerships")
+    op.drop_table("inventory")
